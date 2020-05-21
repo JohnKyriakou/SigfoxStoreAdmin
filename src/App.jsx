@@ -1,18 +1,29 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Admin, Resource } from 'react-admin';
-import simpleRestProvider from 'ra-data-simple-rest';
-import dataProvider from './dataProvider'
-import { SolutionList, SolutionEdit, SolutionCreate, SolutionIcon } from './solutions';
-import authProvider from "./authProvider"
-
+import React from "react";
+import { Admin, Resource } from "react-admin";
+import dataProvider from "./dataProvider";
+import {
+  SolutionList,
+  SolutionEdit,
+  SolutionCreate,
+  SolutionIcon,
+} from "./solutions";
+import authProvider from "./authProvider";
+import Dashboard from "./Dashboard";
 
 const AdminPanel = () => (
+  <Admin
+    dashboard={Dashboard}
+    dataProvider={dataProvider}
+    authProvider={authProvider}
+  >
+    <Resource
+      name="solutions"
+      list={SolutionList}
+      edit={SolutionEdit}
+      create={SolutionCreate}
+      icon={SolutionIcon}
+    />
+  </Admin>
+);
 
-    <Admin dataProvider={dataProvider} authProvider={authProvider}>
-        <Resource name="solutions" list={SolutionList} edit={SolutionEdit} create={SolutionCreate} icon={SolutionIcon}/>
-    </Admin>
-  
-)
-
-export default AdminPanel
+export default AdminPanel;
