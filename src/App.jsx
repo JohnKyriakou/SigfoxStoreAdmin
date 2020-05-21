@@ -7,6 +7,7 @@ import {
   SolutionCreate,
   SolutionIcon,
 } from "./solutions";
+import { ProductList, ProductEdit, ProductCreate } from "./products";
 import authProvider from "./authProvider";
 import Dashboard from "./Dashboard";
 
@@ -22,6 +23,12 @@ const AdminPanel = () => (
       edit={SolutionEdit}
       create={SolutionCreate}
       icon={SolutionIcon}
+    />
+    <Resource
+      name="products"
+      list={ProductList}
+      edit={ProductEdit}
+      create={ProductCreate}
     />
   </Admin>
 );
