@@ -11,6 +11,8 @@ import {
   BulkDeleteButton,
   Filter,
   SearchInput,
+  ImageField,
+  ImageInput,
 } from "react-admin";
 import BookIcon from "@material-ui/icons/Book";
 import ResetViewsButton from "./ResetViewsButton";
@@ -45,7 +47,7 @@ export const SolutionList = (props) => (
     <Datagrid>
       <TextField source="id" />
       <TextField source="title" />
-      <TextField source="image" />
+      <ImageField source="image" />
       <EditButton basePath="/solutions" />
     </Datagrid>
   </List>
@@ -66,7 +68,10 @@ export const SolutionCreate = (props) => (
     <SimpleForm>
       <TextInput disabled source="id" />
       <TextInput source="title" />
-      <TextInput source="image" />
+      <ImageInput source="image" label="Related pictures" accept="image/*">
+        <ImageField source="src" title="title" />
+      </ImageInput>
     </SimpleForm>
   </Create>
 );
+
